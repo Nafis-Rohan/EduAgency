@@ -87,46 +87,75 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener('submit', handleContactFormSubmit);
     }
 
-    // Auto-scroll universities slider
-    const uniScroll = document.querySelector('.university-scroll');
-    if (uniScroll) {
-        const autoScrollDelay = 3200; // ms between moves
-        const moveAmount = () => Math.max(uniScroll.clientWidth * 0.8, 260);
+    // University partners auto-scroll: in view = small scroll right; every 5s one step; at end = small scroll left
+    const uniScroll = document.querySelector('#universityScroll');
+    const partnersSection = document.querySelector('#partners');
+    if (uniScroll && partnersSection) {
+        const oneLogo = 250;
+        const stepDelay = 3000;
         let direction = 1;
-        let timer = null;
+        let stepTimer = null;
+        let isInView = false;
 
-        const step = () => {
-            const max = uniScroll.scrollWidth - uniScroll.clientWidth;
-            if (max <= 0) return;
-            let target = uniScroll.scrollLeft + direction * moveAmount();
-            if (target >= max) {
-                target = max;
-                direction = -1;
-            } else if (target <= 0) {
-                target = 0;
-                direction = 1;
+        function doSmallScroll() {
+            const maxScroll = uniScroll.scrollWidth - uniScroll.clientWidth;
+            if (maxScroll <= 0) return;
+
+            const current = uniScroll.scrollLeft;
+
+            if (direction === 1) {
+                let target = Math.min(current + oneLogo, maxScroll);
+                if (target >= maxScroll) direction = -1;
+                uniScroll.scrollTo({ left: target, behavior: 'smooth' });
+            } else {
+                let target = Math.max(current - oneLogo, 0);
+                if (target <= 0) direction = 1;
+                uniScroll.scrollTo({ left: target, behavior: 'smooth' });
             }
-            uniScroll.scrollTo({ left: target, behavior: 'smooth' });
-        };
+        }
 
-        const start = () => {
-            if (timer) return;
-            timer = setInterval(step, autoScrollDelay);
-        };
+        function scheduleNext() {
+            if (!isInView) return;
+            stepTimer = setTimeout(function() {
+                doSmallScroll();
+                scheduleNext();
+            }, stepDelay);
+        }
 
-        const stop = () => {
-            if (timer) {
-                clearInterval(timer);
-                timer = null;
+        function stopScroll() {
+            if (stepTimer) {
+                clearTimeout(stepTimer);
+                stepTimer = null;
             }
-        };
+        }
 
-        start();
-        // Pause on hover/touch; resume on leave
-        uniScroll.addEventListener('mouseenter', stop);
-        uniScroll.addEventListener('mouseleave', start);
-        uniScroll.addEventListener('touchstart', stop, { passive: true });
-        uniScroll.addEventListener('touchend', start, { passive: true });
+        function startAutoScroll() {
+            isInView = true;
+            stopScroll();
+            // Small delay so layout/scrollWidth is ready
+            setTimeout(function() {
+                doSmallScroll();
+                scheduleNext();
+            }, 400);
+        }
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                isInView = entry.isIntersecting;
+                if (isInView) {
+                    startAutoScroll();
+                } else {
+                    stopScroll();
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        observer.observe(partnersSection);
+
+        uniScroll.addEventListener('mouseenter', stopScroll);
+        uniScroll.addEventListener('mouseleave', function() {
+            if (isInView) scheduleNext();
+        });
     }
 
     // Testimonials slider with dots
