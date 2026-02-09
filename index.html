@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Raj Admission Consultancy - Your trusted partner for government-funded UK university courses. Study without A-Levels!">
+    <title>Raj Admission Consultancy - Your Future Starts Here</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="index.html">
+                    <img src="assets/images/logo.png" alt="Raj Admission Consultancy Logo">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+            <ul class="navbar-menu">
+                <li><a href="index.html" data-page="index">Home</a></li>
+                <li><a href="services.html" data-page="services">Services</a></li>
+                <li><a href="about.html" data-page="about">About Us</a></li>
+                <li><a href="contact.html" data-page="contact">Contact</a></li>
+                <li><a href="apply.html" class="btn-apply">Apply Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-wrapper">
+                <!-- Left Column: Text and CTA -->
+                <div class="hero-content" data-aos="fade-right">
+                    <h1 class="hero-title">
+                        <span class="title-line">Your Future</span>
+                        <span class="title-line">Starts Here</span>
+                    </h1>
+                    <p class="hero-description">
+                        Study a government-funded course at a UK university – Even Without A-Levels. We help British nationals, EU settled and pre-settled individuals, and those with refugee status access university through super flexible, government-funded courses.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="apply.html" class="btn-primary">Apply Now</a>
+                        <a href="#who-can-apply" class="btn-secondary">Discover More</a>
+                    </div>
+                    <p class="hero-info-text">
+                        Tuition fees are funded via Student Finance England. Maintenance loans available up to £25,000 (T&Cs apply).
+                    </p>
+                </div>
+                
+                <!-- Right Column: Overlapping Images (desktop) / Single collage (after 964px) -->
+                <div class="hero-images" data-aos="fade-left">
+                    <!-- Shown only above 964px -->
+                    <div class="hero-image hero-image-1">
+                        <img src="assets/images/hero-1.png" alt="Students studying together">
+                    </div>
+                    <div class="hero-image hero-image-2">
+                        <img src="assets/images/hero-2.png" alt="Student working on laptop">
+                    </div>
+                    <div class="hero-image hero-image-3">
+                        <img src="assets/images/hero-3.png" alt="Student taking notes in lecture">
+                    </div>
+                    <!-- Shown only at 964px and below: your single composite image -->
+                    <div class="hero-collage-single">
+                        <img src="assets/images/hero-collage.png" alt="Students studying - Raj Admission">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who Can Apply Section -->
+    <section class="section who-can-apply" id="who-can-apply">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Are You a Local Student? You May Already Be Eligible</h2>
+                <p>You qualify as a local student if you are:</p>
+            </div>
+            
+            <!-- Z-Style Layout -->
+            <div class="z-style-container">
+                <!-- Row 1: Info Left, Image Right -->
+                <div class="z-style-row">
+                    <div class="z-style-info" data-aos="fade-right">
+                        <div class="z-style-content">
+                            <div class="step-number">01</div>
+                            <h3>British Passport Holder</h3>
+                            <p>UK citizens with British passports are eligible for government-funded courses.</p>
+                        </div>
+                    </div>
+                    <div class="z-style-image" data-aos="fade-left">
+                        <img src="assets/images/passport.png" alt="British Passport">
+                    </div>
+                </div>
+                
+                <!-- Row 2: Image Left, Info Right -->
+                <div class="z-style-row z-style-row-reverse">
+                    <div class="z-style-info" data-aos="fade-left">
+                        <div class="z-style-content z-style-content-right">
+                            <div class="step-number step-number-right">02</div>
+                            <h3>EU Settled/Pre-Settled</h3>
+                            <p>EU passport holders with Pre-Settled or Settled Status can access funding.</p>
+                        </div>
+                    </div>
+                    <div class="z-style-image" data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="EU Passport">
+                    </div>
+                </div>
+                
+                <!-- Row 3: Info Left, Image Right -->
+                <div class="z-style-row">
+                    <div class="z-style-info" data-aos="fade-right">
+                        <div class="z-style-content">
+                            <div class="step-number">03</div>
+                            <h3>Indefinite Leave to Remain (ILR)</h3>
+                            <p>Individuals with ILR status qualify for local student benefits.</p>
+                        </div>
+                    </div>
+                    <div class="z-style-image" data-aos="fade-left">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Document">
+                    </div>
+                </div>
+                
+                <!-- Row 4: Image Left, Info Right -->
+                <div class="z-style-row z-style-row-reverse">
+                    <div class="z-style-info" data-aos="fade-left">
+                        <div class="z-style-content z-style-content-right">
+                            <div class="step-number step-number-right">04</div>
+                            <h3>Refugee Status</h3>
+                            <p>Those with refugee status in the UK are eligible for government funding.</p>
+                        </div>
+                    </div>
+                    <div class="z-style-image" data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Support">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-3" data-aos="fade-up">
+                <p style="font-size: 1.1rem; color: var(--text-dark); font-weight: 500;">
+                    Local students benefit from government-funded courses and flexible entry routes.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Entry Routes Section -->
+    <section class="section entry-routes" id="entry-routes">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Multiple Ways to Get Into University</h2>
+                <p>No A-Levels or Traditional Qualifications Needed</p>
+            </div>
+            <div class="grid grid-4">
+                <div class="route-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="route-card-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>GCSE Route</h3>
+                    <p>Minimum 3 GCSEs at grade C/4+ can open doors to foundation or access courses leading to a full degree.</p>
+                </div>
+                <div class="route-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="route-card-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>NVQ Route</h3>
+                    <p>NVQ Level 2 or 3 (and similar) can be used as an entry qualification, particularly for vocational degrees.</p>
+                </div>
+                <div class="route-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="route-card-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Work Experience</h3>
+                    <p>Relevant work experience supported with employer reference, payslips, or a P60 can count towards your application.</p>
+                </div>
+                <div class="route-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="route-card-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Level 3 Diploma / Qualifi / OTHM</h3>
+                    <p>Level 3 Diplomas (including Qualifi, OTHM, and similar) are strong stepping stones into degrees.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flexible Study Section -->
+    <section class="section flexible-study-section" style="background: #f8f9fa;" id="flexible-study">
+        <div class="container">
+            <div class="flexible-study-header" data-aos="fade-up">
+                <h2 class="flexible-study-title">
+                    <span class="title-part-1">Study While You Work</span>
+                    <span class="title-part-2">– Built for Real Life</span>
+                </h2>
+                <p class="flexible-study-intro">Our partnered universities and colleges offer flexible schedules designed for busy adults, parents, and professionals.</p>
+            </div>
+            <div class="flexible-study-content">
+                <div class="flexible-study-cards" data-aos="fade-right">
+                    <div class="flexible-study-card">
+                        <h3>Timetable Options</h3>
+                        <ul class="flexible-study-list">
+                            <li>Only 2 days per week</li>
+                            <li>Morning / Afternoon / Evening options</li>
+                            <li>Weekday and weekend study available</li>
+                        </ul>
+                    </div>
+                    <div class="flexible-study-card">
+                        <h3>Working Professionals</h3>
+                        <ul class="flexible-study-list">
+                            <li>Perfect for working professionals with full time or part time jobs and mature student</li>
+                            <li>Balance work commitments with flexible study schedules</li>
+                            <li>Career advancement opportunities while maintaining current employment</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="flexible-study-image" data-aos="fade-left">
+                    <div class="flexible-study-image-placeholder">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Flexible adult classroom">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Funding & Financial Support Section -->
+    <section class="section funding-section" id="funding">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Government-Funded Courses – Study with Financial Support</h2>
+                <p>Tuition fees covered by Student Finance England</p>
+            </div>
+            <div class="funding-features-grid">
+                <div class="funding-feature" data-aos="fade-up" data-aos-delay="100">
+                    <div class="funding-feature-icon">
+                        <i class="fas fa-pound-sign"></i>
+                    </div>
+                    <h3>Tuition Fee Loan</h3>
+                    <p>Covers your tuition fees with no need for any upfront payment.</p>
+                </div>
+                <div class="funding-feature" data-aos="fade-up" data-aos-delay="200">
+                    <div class="funding-feature-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3>Maintenance Loan</h3>
+                    <p>Available up to £25,000 (T&Cs apply) to support your living costs while studying.</p>
+                </div>
+                <div class="funding-feature" data-aos="fade-up" data-aos-delay="300">
+                    <div class="funding-feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Focus on Studies</h3>
+                    <p>No upfront payment required. Focus on your studies, not your finances.</p>
+                </div>
+                <div class="funding-feature" data-aos="fade-up" data-aos-delay="400">
+                    <div class="funding-feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Easy Application</h3>
+                    <p>Simple application process with step-by-step guidance from our expert team.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wide Range of Courses Section -->
+    <section class="section" id="courses">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Wide Range of Courses Available</h2>
+                <p>Choose from our extensive selection of degree programs</p>
+            </div>
+            <div class="grid grid-4 course-grid">
+                <div class="card course-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="course-photo" style="background-image: url('assets/images/health-care.png');"></div>
+                    <div class="course-content">
+                        <h4>Health & Care Management</h4>
+                    </div>
+                </div>
+                <div class="card course-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="course-photo" style="background-image: url('https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+                    <div class="course-content">
+                        <h4>Hospitality & Tourism</h4>
+                    </div>
+                </div>
+                <div class="card course-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="course-photo" style="background-image: url('https://images.pexels.com/photos/4101143/pexels-photo-4101143.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+                    <div class="course-content">
+                        <h4>Psychology and Counselling</h4>
+                    </div>
+                </div>
+                <div class="card course-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="course-photo" style="background-image: url('https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+                    <div class="course-content">
+                        <h4>Computing and IT</h4>
+                    </div>
+                </div>
+                <div class="card course-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="course-photo" style="background-image: url('https://images.pexels.com/photos/1181673/pexels-photo-1181673.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+                    <div class="course-content">
+                        <h4>Digital Marketing</h4>
+                    </div>
+                </div>
+                <div class="card course-card" data-aos="fade-up" data-aos-delay="350">
+                    <div class="course-photo" style="background-image: url('https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+                    <div class="course-content">
+                        <h4>Business Management</h4>
+                    </div>
+                </div>
+                <div class="card course-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="course-photo" style="background-image: url('https://images.pexels.com/photos/4484078/pexels-photo-4484078.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+                    <div class="course-content">
+                        <h4>Supply Chain Management</h4>
+                    </div>
+                </div>
+                <div class="card course-card" data-aos="fade-up" data-aos-delay="450">
+                    <div class="course-photo" style="background-image: url('https://images.pexels.com/photos/3861953/pexels-photo-3861953.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+                    <div class="course-content">
+                        <h4>Project Management</h4>
+                    </div>
+                </div>
+                <div class="card course-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="course-photo" style="background-image: url('assets/images/construction.png');"></div>
+                    <div class="course-content">
+                        <h4>Construction Management</h4>
+                    </div>
+                </div>
+                <div class="card course-card" data-aos="fade-up" data-aos-delay="550">
+                    <div class="course-photo" style="background-image: url('https://images.pexels.com/photos/4968633/pexels-photo-4968633.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+                    <div class="course-content">
+                        <h4>Finance & Accounting</h4>
+                    </div>
+                </div>
+                <div class="card course-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="course-photo" style="background-image: url('assets/images/law.png');"></div>
+                    <div class="course-content">
+                        <h4>Law</h4>
+                    </div>
+                </div>
+                <div class="card course-card" data-aos="fade-up" data-aos-delay="650">
+                    <div class="course-photo" style="background-image: url('https://images.pexels.com/photos/3184298/pexels-photo-3184298.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+                    <div class="course-content">
+                        <h4>MBA</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-3" data-aos="fade-up">
+                <p style="font-size: 1.1rem; color: var(--text-dark);">And many more courses available!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section class="section" style="background: #f8f9fa;" id="locations">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Study Close to Home</h2>
+                <p>Choose the city that suits you best</p>
+            </div>
+            <div class="grid grid-3">
+                <div class="card location-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="location-photo" style="background-image: url('assets/images/london.png');" aria-label="London"></div>
+                    <div class="location-content">
+                        <h3>London</h3>
+                    </div>
+                </div>
+                <div class="card location-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="location-photo" style="background-image: url('assets/images/manchester.png');" aria-label="Manchester"></div>
+                    <div class="location-content">
+                        <h3>Manchester</h3>
+                    </div>
+                </div>
+                <div class="card location-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="location-photo" style="background-image: url('assets/images/leeds.png');" aria-label="Leeds"></div>
+                    <div class="location-content">
+                        <h3>Leeds</h3>
+                    </div>
+                </div>
+                <div class="card location-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="location-photo" style="background-image: url('assets/images/birmingham.png');" aria-label="Birmingham"></div>
+                    <div class="location-content">
+                        <h3>Birmingham</h3>
+                    </div>
+                </div>
+                <div class="card location-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="location-photo" style="background-image: url('assets/images/nottingham.png');" aria-label="Nottingham"></div>
+                    <div class="location-content">
+                        <h3>Nottingham</h3>
+                    </div>
+                </div>
+                <div class="card location-card" data-aos="fade-up" data-aos-delay="350">
+                    <div class="location-photo" style="background-image: url('assets/images/newcastle.png');" aria-label="Newcastle"></div>
+                    <div class="location-content">
+                        <h3>Newcastle</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multiple Intakes Section -->
+    <section class="section" id="intakes">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Multiple Intakes Every Year</h2>
+                <p>No need to wait a whole year to begin your degree!</p>
+            </div>
+            <div class="grid grid-4 intake-grid">
+                <div class="card intake-card season-winter" data-aos="fade-up" data-aos-delay="100">
+                    <div class="intake-badge">Winter</div>
+                    <h3>January – February</h3>
+                </div>
+                <div class="card intake-card season-spring" data-aos="fade-up" data-aos-delay="200">
+                    <div class="intake-badge">Spring</div>
+                    <h3>May – June</h3>
+                </div>
+                <div class="card intake-card season-autumn" data-aos="fade-up" data-aos-delay="300">
+                    <div class="intake-badge">Autumn</div>
+                    <h3>September – October</h3>
+                </div>
+                <div class="card intake-card season-winter" data-aos="fade-up" data-aos-delay="400">
+                    <div class="intake-badge">Winter</div>
+                    <h3>November – December</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="section why-choose-us-section" id="why-choose-us">
+        <div class="container">
+            <div class="why-choose-us-wrapper">
+                <div class="why-choose-us-content" data-aos="fade-right">
+                    <h2 class="why-choose-us-title">
+                        <span class="title-part-1">Your Trusted</span>
+                        <span class="title-part-2">Education Partner</span>
+                    </h2>
+                    <p class="why-choose-us-description">
+                        We provide comprehensive support throughout your educational journey. From eligibility assessment to graduation, our expert team guides you every step of the way with personalized assistance and professional guidance.
+                    </p>
+                </div>
+                <div class="why-choose-us-list" data-aos="fade-left">
+                    <div class="why-choose-us-item">
+                        <div class="why-choose-us-check">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="why-choose-us-item-content">
+                            <h3>Free Eligibility Assessment</h3>
+                            <p>Get a free assessment to determine your eligibility for government-funded courses.</p>
+                        </div>
+                    </div>
+                    <div class="why-choose-us-item">
+                        <div class="why-choose-us-check">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="why-choose-us-item-content">
+                            <h3>Step-by-Step Application Support</h3>
+                            <p>We guide you through every step of the application process.</p>
+                        </div>
+                    </div>
+                    <div class="why-choose-us-item">
+                        <div class="why-choose-us-check">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="why-choose-us-item-content">
+                            <h3>Course and Funding Guidance</h3>
+                            <p>Expert advice on choosing the right course and accessing funding.</p>
+                        </div>
+                    </div>
+                    <div class="why-choose-us-item">
+                        <div class="why-choose-us-check">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="why-choose-us-item-content">
+                            <h3>Fast Offers and Smooth Enrolment</h3>
+                            <p>Quick processing and seamless enrolment experience.</p>
+                        </div>
+                    </div>
+                    <div class="why-choose-us-item">
+                        <div class="why-choose-us-check">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="why-choose-us-item-content">
+                            <h3>Support from Application to Graduation</h3>
+                            <p>We're with you every step of the way, from application to graduation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Study Abroad Section (Partners) -->
+    <section class="university-section" id="partners">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Our Partner Universities</h2>
+                <p>Partner with leading universities across the UK</p>
+            </div>
+            <div class="university-scroll" aria-label="University partners">
+                <div class="university-track">
+                    <div class="university-logo" data-aos="fade-up" data-aos-delay="100">
+                        <img src="assets/images/Attached_image.png" alt="Lancaster University logo">
+                    </div>
+                    <div class="university-logo" data-aos="fade-up" data-aos-delay="150">
+                        <img src="assets/images/Attached_image1.png" alt="University of Northampton logo">
+                    </div>
+                    <div class="university-logo" data-aos="fade-up" data-aos-delay="200">
+                        <img src="assets/images/Attached_image2.png" alt="Royal Holloway University of London logo">
+                    </div>
+                    <div class="university-logo" data-aos="fade-up" data-aos-delay="250">
+                        <img src="assets/images/Attached_image3.png" alt="University of Leeds logo">
+                    </div>
+                    <div class="university-logo" data-aos="fade-up" data-aos-delay="300">
+                        <img src="assets/images/Attached_image4.png" alt="Anglia Ruskin University logo">
+                    </div>
+                    <div class="university-logo" data-aos="fade-up" data-aos-delay="350">
+                        <img src="assets/images/Attached_image5.png" alt="University of Huddersfield logo">
+                    </div>
+                    <div class="university-logo" data-aos="fade-up" data-aos-delay="400">
+                        <img src="assets/images/Attached_image6.png" alt="University of Hartford logo">
+                    </div>
+                    <div class="university-logo" data-aos="fade-up" data-aos-delay="450">
+                        <img src="assets/images/Surrey-150x150.png" alt="University of Surrey logo">
+                    </div>
+                    <div class="university-logo" data-aos="fade-up" data-aos-delay="500">
+                        <img src="assets/images/Leeds-150x150.png" alt="Flinders University logo">
+                    </div>
+                    <div class="university-logo" data-aos="fade-up" data-aos-delay="550">
+                        <img src="assets/images/Northampton-150x150.png" alt="Baylor University logo">
+                    </div>
+                    <div class="university-logo" data-aos="fade-up" data-aos-delay="600">
+                        <img src="assets/images/Royal-Holloway-150x150.png" alt="Charles Sturt University logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Our Students Say</h2>
+                <p>Hear from students who achieved their dreams with us</p>
+            </div>
+
+            <div class="testimonials-slider">
+                <!-- Slide 1 -->
+                <div class="testimonials-slide active">
+                    <div class="grid grid-2">
+                        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                            <p class="testimonial-text">RAC is simply amazing. All the staff are helpful and they provided a reliable service. I am glad that they helped me to pick the right course and university in the UK when I was struggling.</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-author-info">
+                                    <h4>R. Yaffa</h4>
+                                    <p>Final Year BA (Hons) Business Management Student, Arden University</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="150">
+                            <p class="testimonial-text">RAC Ltd was instrumental in my university application process. Thanks to their efficient support, I was able to start my course within weeks and felt confident every step of the way.</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-author-info">
+                                    <h4>E. Kim</h4>
+                                    <p>Foundation Year BSc (Hons) Health and Social Care</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="testimonials-slide">
+                    <div class="grid grid-2">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">RAC Ltd provided invaluable assistance during my university search, guiding me to pursue a BA (Hons) in Business Management at the Global Banking School. Thanks to their support, I have successfully graduated and am now employed in the UK.</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-author-info">
+                                    <h4>M. Sanwar Hossain</h4>
+                                    <p>Graduate in BA (Hons) Business Management</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">I recently sought assistance from RAC Ltd for my university application and am extremely pleased with the service. Their guidance made the entire process smooth and stress-free despite my busy schedule.</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-author-info">
+                                    <h4>S. Agnieska</h4>
+                                    <p>Business Management Student</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="testimonials-slide">
+                    <div class="grid grid-2">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">I’ve known Raj and his team for years. They’ve helped me with every stage of my education journey and always treat me like family. I wouldn’t hesitate to recommend them to anyone.</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-author-info">
+                                    <h4>N. Njai</h4>
+                                    <p>Health and Care Management Student</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">From choosing the right university to preparing my documents, RAC Ltd supported me at each step. Their honest advice and fast responses made the whole experience simple and reassuring.</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-author-info">
+                                    <h4>A. Sarkisjan</h4>
+                                    <p>Business Management Student</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slider dots -->
+                <div class="testimonials-dots">
+                    <button class="testimonial-dot active" data-index="0" aria-label="Show testimonial group 1"></button>
+                    <button class="testimonial-dot" data-index="1" aria-label="Show testimonial group 2"></button>
+                    <button class="testimonial-dot" data-index="2" aria-label="Show testimonial group 3"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div data-aos="fade-up">
+                <h2>Ready to Apply?</h2>
+                <p>Start your journey to higher education today. Get free consultation and expert guidance.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+                    <a href="apply.html" class="btn-primary">Apply Now</a>
+                    <a href="https://wa.me/447951194760" class="btn-secondary" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Speak to an Advisor
+                    </a>
+                </div>
+                <p style="margin-top: 2rem; font-size: 1rem;">
+                    <i class="fas fa-check"></i> Free consultation &nbsp;|&nbsp; 
+                    <i class="fas fa-check"></i> No obligation &nbsp;|&nbsp; 
+                    <i class="fas fa-check"></i> UK-based support
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- About Us Column -->
+                <div class="footer-column">
+                    <h3>About Raj Admission</h3>
+                    <p>RAC is a leading educational consultant working with more than 100 universities in the UK, USA, AUS & NZ. We help students achieve their dream of getting a higher degree abroad.</p>
+                    <div class="social-links">
+                        <a href="https://www.tiktok.com/@rajadmission" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://wa.me/447951194760" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="apply.html">Apply Now</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info Column -->
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-contact-info">
+                        <li>
+                            <div>
+                                <strong>United Kingdom Office:</strong><br>
+                                5 Mile End road (1st floor) E1 4TP<br>
+                                London, United Kingdom<br>
+                                <span style="display:block; margin-top:4px;">
+                                    London UK : <a href="tel:+4407951194760">+44 0795 119 4760</a><br>
+                                    Email: <a href="mailto:info@rajadmission.com">info@rajadmission.com</a>
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <strong>Bangladesh Office:</strong><br>
+                                House no. 4 (4th floor), Main road,<br>
+                                Block- C, Banasree project, Rampura, Dhaka- 1209<br>
+                                <span style="display:block; margin-top:4px;">
+                                    Bangladesh: <a href="tel:+8801757526606">+880 1757 526606</a><br>
+                                    Email: <a href="mailto:afran@rajadmission.com">afran@rajadmission.com</a>
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 Raj Admission Consultancy Limited. All rights reserved | 
+                <a href="privacy.html">Privacy Policy</a></p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                    VAT Registration Number: 416139608 | Company Registration Number: 10530823
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/447951194760" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
