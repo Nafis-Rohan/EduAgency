@@ -76,7 +76,7 @@ $universityHistory = htmlspecialchars(strip_tags($data['universityHistory']));
 $postalCode = htmlspecialchars(strip_tags($data['postalCode']));
 $city = htmlspecialchars(strip_tags($data['city']));
 
-// Email configuration
+// Email configuration (production recipient)
 $to = 'afran@rajadmission.com';
 $subject = 'New Student Application - Raj Admission Consultancy';
 
