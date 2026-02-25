@@ -7,7 +7,7 @@
                 <h3>About Raj Admission</h3>
                 <p>RAC is a leading educational consultant working with more than 100 universities in the UK, USA, AUS & NZ. We help students achieve their dream of getting a higher degree abroad.</p>
                 <div class="social-links">
-                    <a href="https://www.tiktok.com/@rajadmission" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                    <a href="https://www.tiktok.com/@study_with_rac" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
                         <i class="fab fa-tiktok"></i>
                     </a>
                     <a href="https://wa.me/447951194760?text=Hi%2C%20I%27m%20interested%20in%20a%20government-funded%20UK%20university%20course.%20Can%20you%20please%20help%20me%20apply%3F" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
