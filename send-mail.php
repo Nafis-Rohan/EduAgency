@@ -1,22 +1,41 @@
 <?php
+
 /**
- * Raj Admission Consultancy - Email Handler
+ * Raj Admission Consultancy - Application Form Email Handler
  * Handles form submissions from apply.html
+ *
+ * FIXES APPLIED:
+ * 1. From header now uses afran@rajadmission.com (real cPanel email - prevents rejection)
+ * 2. $to now sends directly to your Outlook email
+ * 3. CORS locked to your domain only (security fix)
+ * 4. Removed @ error suppression from mail() so failures are visible in logs
  */
 
-// Set headers for JSON response
+// ============================================================
+// CONFIGURATION — Edit these values before deploying
+// ============================================================
+$YOUR_OUTLOOK_EMAIL = 'shafakatarnob98@outlook.com';   // <-- Change this to your real Outlook email
+$FROM_EMAIL         = 'afran@rajadmission.com';  // Must match a real cPanel email account
+$FROM_NAME          = 'Raj Admission Consultancy';
+$ALLOWED_ORIGIN     = 'https://rajadmission.com'; // Your live domain
+// ============================================================
+
+// Lock CORS to your domain only (NOT wildcard *)
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Origin: ' . $ALLOWED_ORIGIN);
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
+
+// Handle preflight OPTIONS request
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit;
+}
 
 // Only allow POST requests
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
-    echo json_encode([
-        'success' => false,
-        'message' => 'Method not allowed'
-    ]);
+    echo json_encode(['success' => false, 'message' => 'Method not allowed']);
     exit;
 }
 
@@ -24,13 +43,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $input = file_get_contents('php://input');
 $data = json_decode($input, true);
 
-// Validate JSON data
+// Validate JSON
 if (json_last_error() !== JSON_ERROR_NONE) {
     http_response_code(400);
-    echo json_encode([
-        'success' => false,
-        'message' => 'Invalid JSON data'
-    ]);
+    echo json_encode(['success' => false, 'message' => 'Invalid JSON data']);
     exit;
 }
 
@@ -39,10 +55,7 @@ $requiredFields = ['fullName', 'phone', 'email', 'settlementStatus', 'university
 foreach ($requiredFields as $field) {
     if (empty($data[$field])) {
         http_response_code(400);
-        echo json_encode([
-            'success' => false,
-            'message' => "Missing required field: $field"
-        ]);
+        echo json_encode(['success' => false, 'message' => "Missing required field: $field"]);
         exit;
     }
 }
@@ -50,37 +63,31 @@ foreach ($requiredFields as $field) {
 // Validate email format
 if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
     http_response_code(400);
-    echo json_encode([
-        'success' => false,
-        'message' => 'Invalid email format'
-    ]);
+    echo json_encode(['success' => false, 'message' => 'Invalid email format']);
     exit;
 }
 
-// Check if terms were accepted
+// Check terms accepted
 if (empty($data['termsAccepted']) || $data['termsAccepted'] !== true) {
     http_response_code(400);
-    echo json_encode([
-        'success' => false,
-        'message' => 'Terms and Privacy Policy must be accepted'
-    ]);
+    echo json_encode(['success' => false, 'message' => 'Terms and Privacy Policy must be accepted']);
     exit;
 }
 
-// Sanitize input data
-$fullName = htmlspecialchars(strip_tags($data['fullName']));
-$phone = htmlspecialchars(strip_tags($data['phone']));
-$email = filter_var($data['email'], FILTER_SANITIZE_EMAIL);
-$settlementStatus = htmlspecialchars(strip_tags($data['settlementStatus']));
+// Sanitize input
+$fullName          = htmlspecialchars(strip_tags($data['fullName']));
+$phone             = htmlspecialchars(strip_tags($data['phone']));
+$email             = filter_var($data['email'], FILTER_SANITIZE_EMAIL);
+$settlementStatus  = htmlspecialchars(strip_tags($data['settlementStatus']));
 $universityHistory = htmlspecialchars(strip_tags($data['universityHistory']));
-$postalCode = htmlspecialchars(strip_tags($data['postalCode']));
-$city = htmlspecialchars(strip_tags($data['city']));
+$postalCode        = htmlspecialchars(strip_tags($data['postalCode']));
+$city              = htmlspecialchars(strip_tags($data['city']));
 
-// Email configuration (production recipient)
-$to = 'afran@rajadmission.com';
+// Email destination and subject
+$to      = $YOUR_OUTLOOK_EMAIL;
 $subject = 'New Student Application - Raj Admission Consultancy';
 
-// Create HTML email body
+// HTML email body
 $emailBody = "
 <!DOCTYPE html>
 <html>
@@ -106,46 +113,17 @@ $emailBody = "
         </div>
         <div class='content'>
             <p><strong>A new student application has been submitted through the website.</strong></p>
-            
             <table>
-                <tr>
-                    <th>Field</th>
-                    <th>Details</th>
-                </tr>
-                <tr>
-                    <td><strong>Full Name</strong></td>
-                    <td>{$fullName}</td>
-                </tr>
-                <tr>
-                    <td><strong>Phone Number</strong></td>
-                    <td>{$phone}</td>
-                </tr>
-                <tr>
-                    <td><strong>Email Address</strong></td>
-                    <td>{$email}</td>
-                </tr>
-                <tr>
-                    <td><strong>Settlement Status</strong></td>
-                    <td>{$settlementStatus}</td>
-                </tr>
-                <tr>
-                    <td><strong>University History</strong></td>
-                    <td>{$universityHistory}</td>
-                </tr>
-                <tr>
-                    <td><strong>Postal Code</strong></td>
-                    <td>{$postalCode}</td>
-                </tr>
-                <tr>
-                    <td><strong>City</strong></td>
-                    <td>{$city}</td>
-                </tr>
-                <tr>
-                    <td><strong>Submission Date</strong></td>
-                    <td>" . date('Y-m-d H:i:s') . "</td>
-                </tr>
+                <tr><th>Field</th><th>Details</th></tr>
+                <tr><td><strong>Full Name</strong></td><td>{$fullName}</td></tr>
+                <tr><td><strong>Phone Number</strong></td><td>{$phone}</td></tr>
+                <tr><td><strong>Email Address</strong></td><td>{$email}</td></tr>
+                <tr><td><strong>Settlement Status</strong></td><td>{$settlementStatus}</td></tr>
+                <tr><td><strong>University History</strong></td><td>{$universityHistory}</td></tr>
+                <tr><td><strong>Postal Code</strong></td><td>{$postalCode}</td></tr>
+                <tr><td><strong>City</strong></td><td>{$city}</td></tr>
+                <tr><td><strong>Submission Date</strong></td><td>" . date('Y-m-d H:i:s') . "</td></tr>
             </table>
-            
             <p style='margin-top: 20px;'>
                 <strong>Next Steps:</strong><br>
                 Please contact the applicant to discuss their eligibility and proceed with the application process.
@@ -160,32 +138,27 @@ $emailBody = "
 </html>
 ";
 
-// Email headers
-$headers = "MIME-Version: 1.0" . "\r\n";
-$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$headers .= "From: Raj Admission Consultancy <noreply@rajadmission.com>" . "\r\n";
-$headers .= "Reply-To: {$email}" . "\r\n";
+// Email headers — From must use a real cPanel email address
+$headers  = "MIME-Version: 1.0\r\n";
+$headers .= "Content-type: text/html; charset=UTF-8\r\n";
+$headers .= "From: {$FROM_NAME} <{$FROM_EMAIL}>\r\n";
+$headers .= "Reply-To: {$email}\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion();
 
-// Send email
-$mailSent = @mail($to, $subject, $emailBody, $headers);
+// Send email (removed @ suppression so errors appear in server logs)
+$mailSent = mail($to, $subject, $emailBody, $headers);
 
 if ($mailSent) {
-    // Success response
     http_response_code(200);
     echo json_encode([
         'success' => true,
         'message' => 'Application submitted successfully. We will contact you soon.'
     ]);
 } else {
-    // Error response
     http_response_code(500);
     echo json_encode([
         'success' => false,
         'message' => 'Failed to send email. Please try again later or contact us directly.'
     ]);
-    
-    // Log error (optional - for debugging)
-    error_log("Failed to send email for application from: {$email}");
+    error_log("send-mail.php: Failed to send application email from: {$email}");
 }
-?>
