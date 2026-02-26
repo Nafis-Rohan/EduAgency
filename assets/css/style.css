@@ -609,6 +609,13 @@ img {
     color: var(--white);
 }
 
+.hero .btn-secondary:hover {
+    background: transparent;
+    color: var(--deep-teal);
+    border-width: 2px; /* keep layout stable */
+    box-shadow: 0 0 0 2px rgba(15, 76, 92, 0.15); /* subtle bold effect */
+}
+
 .hero-info-text {
     font-size: 1rem;
     color: #2c3e50;

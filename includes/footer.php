@@ -10,7 +10,7 @@
                     <a href="https://www.tiktok.com/@study_with_rac" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
                         <i class="fab fa-tiktok"></i>
                     </a>
-                    <a href="https://wa.me/447951194760?text=Hi%2C%20I%27m%20interested%20in%20a%20government-funded%20UK%20university%20course.%20Can%20you%20please%20help%20me%20apply%3F" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                    <a href="https://wa.me/447951194760?text=Hello%2C%20I%27m%20interested%20in%20applying%20for%20a%20university%20course%20in%20the%20UK%20and%20would%20appreciate%20guidance%20on%20the%20application%20process." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                         <i class="fab fa-whatsapp"></i>
                     </a>
                 </div>
@@ -20,7 +20,7 @@
             <div class="footer-column">
                 <h3>Quick Links</h3>
                 <ul class="footer-links">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="apply.html">Apply Now</a></li>
@@ -69,6 +69,6 @@
 </footer>
 
 <!-- WhatsApp Float Button -->
-<a href="https://wa.me/447951194760?text=Hi%2C%20I%27m%20interested%20in%20a%20government-funded%20UK%20university%20course.%20Can%20you%20please%20help%20me%20apply%3F" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
+<a href="https://wa.me/447951194760?text=Hello%2C%20I%27m%20interested%20in%20applying%20for%20a%20university%20course%20in%20the%20UK%20and%20would%20appreciate%20guidance%20on%20the%20application%20process." target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
     <i class="fab fa-whatsapp"></i>
 </a>

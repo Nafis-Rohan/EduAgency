@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const partnersSection = document.querySelector('#partners');
     if (uniScroll && partnersSection) {
         const oneLogo = 250;
-        const stepDelay = 3000;
+        const stepDelay = 1500; /* 2x faster: step every 1.5s */
         let direction = 1;
         let stepTimer = null;
         let isInView = false;
@@ -183,11 +183,12 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Auto-rotate every 10 seconds
-        let testimonialTimer = setInterval(() => showSlide(currentIndex + 1), 10000);
+        // Auto-rotate every 5 seconds (2x faster)
+        const testimonialInterval = 5000;
+        let testimonialTimer = setInterval(() => showSlide(currentIndex + 1), testimonialInterval);
         testimonialSlider.addEventListener('mouseenter', () => clearInterval(testimonialTimer));
         testimonialSlider.addEventListener('mouseleave', () => {
-            testimonialTimer = setInterval(() => showSlide(currentIndex + 1), 10000);
+            testimonialTimer = setInterval(() => showSlide(currentIndex + 1), testimonialInterval);
         });
 
         showSlide(0);
