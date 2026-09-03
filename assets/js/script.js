@@ -23,25 +23,59 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Navbar scroll effect
+    // Navbar scroll effect: shrink/shadow on scroll, hide on scroll down, reveal on scroll up
     const navbar = document.querySelector('.navbar');
     if (navbar) {
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+        const REVEAL_DELTA = 5;    // ignore micro-scrolls / trackpad jitter
+        const HIDE_AFTER = 200;    // don't hide until we're this far down the page
+
+        const updateNavbar = function() {
+            const currentY = window.scrollY;
+
+            // Solid background + shadow once scrolled past the top
+            navbar.classList.toggle('scrolled', currentY > 50);
+
+            const diff = currentY - lastScrollY;
+
+            // Keep the navbar visible while the mobile menu is open
+            const menuOpen = document.querySelector('.navbar-menu.active');
+
+            if (Math.abs(diff) > REVEAL_DELTA && !menuOpen) {
+                if (diff > 0 && currentY > HIDE_AFTER) {
+                    navbar.classList.add('nav-hidden');   // scrolling down
+                } else if (diff < 0) {
+                    navbar.classList.remove('nav-hidden'); // scrolling up
+                }
             }
-        });
+
+            // Always show at the very top
+            if (currentY <= HIDE_AFTER) {
+                navbar.classList.remove('nav-hidden');
+            }
+
+            lastScrollY = currentY;
+            ticking = false;
+        };
+
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(updateNavbar);
+                ticking = true;
+            }
+        }, { passive: true });
     }
 
     // Mobile menu toggle
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const navbarMenu = document.querySelector('.navbar-menu');
-    
+
     if (mobileMenuToggle && navbarMenu) {
         mobileMenuToggle.addEventListener('click', function() {
             navbarMenu.classList.toggle('active');
+            // Never leave the navbar hidden while the menu is open
+            if (navbar) navbar.classList.remove('nav-hidden');
             this.innerHTML = navbarMenu.classList.contains('active')
                 ? '<i class="fas fa-times"></i>'
                 : '<i class="fas fa-bars"></i>';
